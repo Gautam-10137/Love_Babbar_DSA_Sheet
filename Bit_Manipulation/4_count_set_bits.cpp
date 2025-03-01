@@ -8,6 +8,18 @@ class Solution {
     //Function to return sum of count of set bits in the integers from 1 to n.
     int countSetBits(int n)
     {
-        // Your logic here
+
+        // brute-force approach
+        int count=0;
+        int i=n;
+        while(i>0){
+          int num=i;
+          while(num){
+            if(num & 1) count++;
+            num=num>>1;
+          }
+          i--;
+        }
+        return count;
     }
 };
