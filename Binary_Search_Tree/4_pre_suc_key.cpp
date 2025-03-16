@@ -36,6 +36,7 @@ void findSuc(Node* root,int key){
     return;
 }
 
+
 void findPreSuc(Node* root, Node*& pre, Node*& suc, int key)
 {
     findPre(root,key);
@@ -43,4 +44,19 @@ void findPreSuc(Node* root, Node*& pre, Node*& suc, int key)
     pre=first;
     suc=second;
     return;  
+}
+
+// Optimized (ans in one go)
+    
+void findPreSuc(Node* root,int key){
+    if(!root) return;
+    findPreSuc(root->left,key);
+    if(root->data<key){
+        first=root;
+    } 
+    if(root->data>key && !second){
+        second=root;
+    } 
+    findPreSuc(root->right,key);
+    return;
 }
