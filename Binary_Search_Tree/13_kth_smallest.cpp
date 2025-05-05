@@ -19,17 +19,17 @@ class Solution {
     void fn(Node* root,int& idx,int k,int& ans){
         if(!root) return;
         
-        fn(root->right,idx,k,ans);
+        fn(root->left,idx,k,ans);
         idx++;
         if(idx==k){
             ans=root->data;
             return;
         }
-        fn(root->left,idx,k,ans);
+        fn(root->right,idx,k,ans);
     }
     int kthLargest(Node *root, int k) {
         // Your code here
-        int ans=-1;
+        int ans=0;
         int idx=0;
         fn(root,idx,k,ans);
         return ans;
