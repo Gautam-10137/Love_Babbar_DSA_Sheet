@@ -4,7 +4,7 @@ using namespace std;
 
 class Solution {
   public:
-  // using Dutch National Flag Algo
+
   vector<int> move(vector<int>& arr){
     int n=arr.size();
     int cnt=0;
