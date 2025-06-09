@@ -11,17 +11,19 @@ struct Node
 class Solution {
   public:
   // recursive way
-  Node* reverse(struct Node* head){
+  Node* reverseL(Node* head){
     if(!head || !head->next) return head;
     
-    Node* curr=head;
-    Node* next=curr->next;
-    Node* newHead=reverse(next);
-
-    next->next=curr;
+    Node* newHead=reverseL(head->next);
+    head->next->next=head;
+    head->next=NULL;
+  
     return newHead;
 
   }
+    Node* reverseList(struct Node* head) {
+       return reverseL(head);
+    }
 
   // iterative way
     Node* reverseList(struct Node* head) {
